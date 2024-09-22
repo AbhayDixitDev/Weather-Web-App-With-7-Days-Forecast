@@ -5,15 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script defer src="script.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="weather-input">
         <div class="input-group">
-          <input type="text"  id="userLocation" placeholder="Search Your City">
-          <select  id="converter" class="converter">
+          <input type="text" id="userLocation" placeholder="Search Your City" />
+          <select id="converter" class="converter">
             <option>°C</option>
             <option>°F</option>
           </select>
@@ -23,10 +29,9 @@
         <h2 class="temperature"></h2>
         <div class="feelsLike"></div>
         <div class="description"></div>
-        <hr/>
+        <hr />
         <div class="date"></div>
         <div class="city"></div>
-
       </div>
       <div class="weather-output">
         <h2 class="heading">Today's Highlights</h2>
@@ -72,11 +77,16 @@
             <h1 id="PValue"></h1>
           </div>
         </div>
-        <br/>
+        <br />
         <h2 class="heading">This Week</h2>
-         <div class="Forecast">
+        <div class="Forecast"></div>
+        <br />
 
-         </div>
+        <!-- Add a new section for hourly data -->
+        <div class="hourly-weather">
+          <h2 class="heading">Hourly Weather</h2>
+          <div class="hourly-forecast"></div>
+        </div>
       </div>
     </div>
   </body>
