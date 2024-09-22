@@ -25,8 +25,10 @@
           </select>
           <i class="fa fa-search" onclick="findUserLocation()"></i>
         </div>
-        <div class="weatherIcon"></div>
-        <h2 class="temperature"></h2>
+        <div class="weatherIcon">
+          <h2 class="temperature"></h2>
+        </div>
+       
         <div class="feelsLike"></div>
         <div class="description"></div>
         <hr />
@@ -34,7 +36,7 @@
         <div class="city"></div>
       </div>
       <div class="weather-output">
-        <h2 class="heading">Today's Highlights</h2>
+        <h2 class="heading" onclick="showHigh()" style="cursor:pointer">Today's Highlights</h2>
         <div class="highlights">
           <div class="humidity">
             Humidity
@@ -78,15 +80,17 @@
           </div>
         </div>
         <br />
-        <h2 class="heading">This Week</h2>
+         <!-- Add a new section for hourly data -->
+         <h2 class="heading" onclick="showHW()" style="cursor:pointer">Hourly Weather</h2>
+        <div class="hourly-weather">
+          <div class="hourly-forecast"></div>
+        </div>
+        <br />
+        <h2 class="heading" onclick="showWeek()" style="cursor:pointer">This Week</h2>
         <div class="Forecast"></div>
         <br />
 
-        <!-- Add a new section for hourly data -->
-        <div class="hourly-weather">
-          <h2 class="heading">Hourly Weather</h2>
-          <div class="hourly-forecast"></div>
-        </div>
+       
       </div>
     </div>
   </body>

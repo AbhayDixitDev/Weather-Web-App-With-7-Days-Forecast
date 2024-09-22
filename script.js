@@ -20,6 +20,9 @@ WEATHER_API_ENDPOINT =
 WEATHER_DATA_ENDPOINT = "https://api.openweathermap.org/data/3.0/onecall?";
 
 function findUserLocation() {
+  document.querySelector(".highlights").style.display="grid";
+document.querySelector(".hourly-weather").style.display="grid";
+document.querySelector(".Forecast").style.display="grid";
   
   Forecast.innerHTML = "";
   fetch(WEATHER_API_ENDPOINT + userLocation.value)
@@ -41,7 +44,7 @@ function findUserLocation() {
         .then((data) => {
           console.log(data);
           temperature.innerHTML = TemConverter(data.current.temp);
-          feelsLike.innerHTML = "Feels Like " + data.current.feels_like;
+          feelsLike.innerHTML = "Feels Like " + TemConverter(data.current.feels_like);
           description.innerHTML =
             `<i class="fa fa-brands fa-cloudversify"></i> &nbsp;` +
             data.current.weather[0].description;
@@ -135,23 +138,72 @@ function TemConverter(temp) {
 function populateHourlyData(data) {
   const hourlyForecast = document.querySelector(".hourly-forecast");
   hourlyForecast.innerHTML = "";
-
+  let count=0;
   data.hourly.forEach((hourlyData) => {
-    const div = document.createElement("div");
-    const options = {
-      hour: "numeric",
-      minute: "numeric",
-    };
-    const dateTime = getLongFormatDateTime(hourlyData.dt, 0, options);
-    div.innerHTML = `
-      <p>${dateTime}</p>
-      <img src="https://openweathermap.org/img/wn/${hourlyData.weather[0].icon}@2x.png"/>
-      <p>Temp: ${TemConverter(hourlyData.temp)}</p>
-      <p>Feels Like: ${hourlyData.feels_like}</p>
-      <p>Humidity: ${hourlyData.humidity}%</p>
-      <p>Wind Speed: ${hourlyData.wind_speed} m/s</p>
-    `;
-    hourlyForecast.append(div);
+    if(count<12){
+      const div = document.createElement("div");
+      const options = {
+        hour: "numeric",
+        minute: "numeric",
+      };
+      const dateTime = getLongFormatDateTime(hourlyData.dt, 0, options);
+      div.innerHTML = `
+        <span style="display:flex;align-items:center;">
+        <img src="https://openweathermap.org/img/wn/${hourlyData.weather[0].icon}@2x.png"/>
+        <p style="align-items:center;">${dateTime}</p>        
+        </span>
+        <p>Temp: ${TemConverter(hourlyData.temp)}</p>
+        <p>Feels Like: ${TemConverter(hourlyData.feels_like)}</p>
+        <p>Humidity: ${hourlyData.humidity}%</p>
+        <p>Wind Speed: ${hourlyData.wind_speed} m/s</p>
+      `;
+      hourlyForecast.append(div);
+      count++;
+    }
   });
 }
 
+let highl=1;
+function showHigh(){
+  
+  if(highl===0){
+    document.querySelector(".highlights").style.display="grid";
+    highl=1;
+  }
+  else{
+    document.querySelector(".highlights").style.display="none";
+    highl=0;
+  }
+  
+
+}
+
+let hours=1;
+function showHW(){
+  
+  if(hours===0){
+    document.querySelector(".hourly-weather").style.display="grid";
+    hours=1;
+  }
+  else{
+    document.querySelector(".hourly-weather").style.display="none";
+    hours=0;
+  }
+  
+
+}
+
+let week=1;
+function showWeek(){
+  
+  if(week===0){
+    document.querySelector(".Forecast").style.display="grid";
+    week=1;
+  }
+  else{
+    document.querySelector(".Forecast").style.display="none";
+    week=0;
+  }
+  
+
+}
