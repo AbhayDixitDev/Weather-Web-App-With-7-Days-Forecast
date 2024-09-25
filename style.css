@@ -13,15 +13,15 @@
   background-color: #83838398;
 }
 body{
-  height: 100vh;
+  /* height: 100vh; */
 }
 .container{
   display: flex;
   align-items: center;
 }
 .weather-input{
-  width: 25%;
-  position: fixed;
+  /* width: 25%; */
+  /* position: fixed; */
   inset: 0;
   background:#0066c6;
   padding: 1rem 2.5rem;
@@ -50,7 +50,10 @@ margin:2rem auto;
   border-radius: 6px;
   width: 100%;
   outline: none;
-  border: none;
+  border: none;  
+}
+.input-group input::placeholder{
+  color: Black;
 }
 .input-group .converter{
   position: absolute;
@@ -79,10 +82,10 @@ margin:2rem auto;
 
 
 .weather-output{
-  width: 75%;
-  position:fixed;
+  /* width: 75%; */
+  /* position:fixed; */
   inset: 0;
-  margin-left: 25%;
+  /* margin-left: 25%; */
   padding: 2rem;
   background-color: #f6f6f6;
   overflow: auto;
@@ -111,24 +114,31 @@ margin:2rem auto;
 
 .highlights{
  display: none;
- grid-template-columns: repeat(3,350px);
+ grid-template-columns: repeat(3,480px);
  grid-auto-flow: row;
  row-gap: 1rem;
  column-gap: 10px;
-
+}
+@media only screen and (max-width: 768px) {
+  .highlights {
+    grid-template-columns: repeat(2, 45%);
+  }
 }
 
 .Forecast{
   display: grid;
-  grid-template-columns: repeat(4,260px);
+  grid-template-columns: repeat(4,350px);
   grid-auto-flow: row;
   row-gap: 1rem;
-  column-gap: 10px;
+  column-gap: 20px;
+  height: 250px;
+
 }
+
 
 .highlights div,
 .Forecast div{
-   height: 200px;
+   height: 250px;
    display: grid;
    align-items: center;
    justify-content: center;
@@ -138,6 +148,14 @@ margin:2rem auto;
    padding: 1rem;
    font-weight: 600;
 
+}
+@media only screen and (max-width: 768px) {
+  .Forecast {
+    grid-template-columns: repeat(2, 45%);
+  }
+  .Forecast div{
+    height: 220px;
+  }
 }
 .highlights i{
   font-size: 45px;
@@ -176,10 +194,15 @@ margin:2rem auto;
 
 .hourly-forecast{
   display: grid;
-  grid-template-columns: repeat(4,260px);
+  grid-template-columns: repeat(4,350px);
   grid-auto-flow: row;
-  row-gap: 1rem;
-  column-gap: 10px;
+  row-gap: 1.5rem;
+  column-gap: 20px;
+}
+@media only screen and (max-width: 768px) {
+  .hourly-forecast {
+    grid-template-columns: repeat(2, 45%);
+  }
 }
 
 .hourly-forecast div{
